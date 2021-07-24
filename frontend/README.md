@@ -1,4 +1,4 @@
-# frontend
+# fullstack-test-fundraise-frontend
 
 ## Project setup
 ```

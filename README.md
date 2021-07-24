@@ -5,7 +5,7 @@
 ```
 npm run setup
 ```
-### 2) Укажите в ./backend/.env в параметре MONGODB_CONNECTION свою строку подключения к Mongo
+### 2) Укажите в файле ./backend/.env в параметре MONGODB_CONNECTION свою строку подключения к Mongo
 
 ## Запуск проекта
 ### 1) Запустите backend проекта командой:
