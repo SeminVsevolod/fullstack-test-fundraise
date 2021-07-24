@@ -1,0 +1,16 @@
+{
+  "name": "fullstack-test-fundraise",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "setup:backend": "cd ./backend && npm i -g nodemon && npm i && cd ..",
+    "setup:frontend": "cd ./frontend && npm i && cd ..",
+    "copy_env:backend": "cd ./backend && cp .env.example .env && cd ..",
+    "copy_env:frontend": "cd ./frontend && cp .env.example .env && cd ..",
+    "setup": "npm run setup:frontend && npm run setup:backend && npm run copy_env:backend && npm run copy_env:frontend",
+    "start:backend": "cd ./backend && npm run start",
+    "start:frontend": "cd ./frontend && npm run serve && cd ."
+  },
+  "author": "SeminVsevolod@github.com",
+  "license": "ISC"
+}
