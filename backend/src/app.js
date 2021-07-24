@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const logger = require('koa-logger');
 const dotenv = require('dotenv');
 const Koa = require('koa');
+const cors = require('@koa/cors');
 const app = new Koa();
 const router = require('./router');
 const errorHandler = require('./middlewares/errorHandler');
@@ -12,7 +13,7 @@ const errorHandler = require('./middlewares/errorHandler');
  * | Конфигурация |
  * +--------------+
  */
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './.env' });
 
 /**
  * +------------------+
@@ -33,20 +34,15 @@ mongoose
  * | Middlewares |
  * +-------------+
  */
-// Обрабатываем ошибки
-app.use(errorHandler);
-
-// Логируем события
-app.use(logger());
-
-// Получаем доступ к телу запроса
-app.use(bodyParser({
-    onerror: (err, ctx) => {
-        ctx.throw(`body parse error: ${err}`, 422);
-    }
-}));
-
-// Обрабатываем роуты
-app.use(router.routes());
+app
+    .use(cors())
+    .use(errorHandler)
+    .use(logger())
+    .use(bodyParser({
+        onerror: (err, ctx) => {
+            ctx.throw(`body parse error: ${err}`, 422);
+        }
+    }))
+    .use(router.routes());
 
 module.exports = app;
