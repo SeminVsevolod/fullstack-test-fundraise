@@ -9,7 +9,7 @@
     "copy_env:frontend": "cd ./frontend && cp .env.example .env && cd ..",
     "setup": "npm run setup:frontend && npm run setup:backend && npm run copy_env:backend && npm run copy_env:frontend",
     "start:backend": "cd ./backend && npm run start",
-    "start:frontend": "cd ./frontend && npm run serve && cd ."
+    "start:frontend": "cd ./frontend && npm run serve"
   },
   "author": "SeminVsevolod@github.com",
   "license": "ISC"
